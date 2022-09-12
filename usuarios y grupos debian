@@ -1,0 +1,8 @@
+su -
+
+useradd PAPA
+useradd FRANKLIN
+
+groupadd casa
+
+
