@@ -1,8 +1,39 @@
+
+        INICAMOS EN MODO ROOT EN DEBIAN
 su -
 
+        CREAMOS LOS USUARIOS
+        
 useradd PAPA
 useradd FRANKLIN
 
+        CREAMOS EL GRUPO 
+        
 groupadd casa
 
+        VERIFICAMOS QUE EL GRUPO ESTE CREADO CON EL COMANDO
+       
+cat /etc/group
 
+        AHORA MOVEREMOS LOS USUARIOS AL GRUPO ANTERIORMENTE CREADO
+        
+adduser [NOMBRE DEL USUARIO] papa + [NOMBRE DEL GRUPO] casa
+adduser [NOMBRE DEL USUARIO] franklin + [NOMBRE DEL GRUPO] casa
+
+        VERIFICACMOS QUE SE HAYA MOVIDO CON EL COMANDO
+        
+cut -d: -f1,4 /etc/group
+  (casa: papa, franklin)
+  
+        AHORA MODIFICAREMOS EL NOMBRE DEL GRRUPO 
+            CAMBIAREMOS DE ´casa´ A ´familia´
+        
+groupmod + -G [NUEVO GID] 1002 + -n [NUEVO NOMBRE] familia + [EL NOMBRE DEL GRUPO] casa
+
+        VERIFICAMOS CON EL COMANDO
+        
+cat /etc/group
+    
+    familia:papa,fanklin
+        
+        
